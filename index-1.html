@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volt Bay — South Africa's Smart EV Charging Network</title>
+<meta name="description" content="Zero upfront cost EV charging for your property. Volt Bay installs, operates and maintains DC fast charging infrastructure while you earn recurring revenue.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          volt: {
+            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
+            400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d',
+            800: '#166534', 900: '#14532d',
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .gradient-text {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  details > summary { list-style: none; }
+  details > summary::-webkit-details-marker { display: none; }
+  .slider-thumb::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: #16a34a; cursor: pointer; border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  .slider-thumb::-moz-range-thumb {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: #16a34a; cursor: pointer; border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+<!-- Navigation -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-2">
+        <svg class="w-8 h-8 text-volt-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <span class="text-xl font-bold tracking-tight text-slate-900">VOLT<span class="text-volt-600">BAY</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#property-owners" class="text-sm font-medium text-slate-600 hover:text-volt-600 transition">Property Owners</a>
+        <a href="fleet.html" class="text-sm font-medium text-slate-600 hover:text-volt-600 transition">Fleet Solutions</a>
+        <a href="#ev-drivers" class="text-sm font-medium text-slate-600 hover:text-volt-600 transition">EV Drivers</a>
+        <a href="#about" class="text-sm font-medium text-slate-600 hover:text-volt-600 transition">About</a>
+        <a href="#proposal" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-volt-600 rounded-lg hover:bg-volt-700 transition">Get a Proposal</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden p-2 text-slate-600" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white">
+    <div class="px-4 py-4 space-y-3">
+      <a href="#property-owners" class="block text-base font-medium text-slate-700">Property Owners</a>
+      <a href="fleet.html" class="block text-base font-medium text-slate-700">Fleet Solutions</a>
+      <a href="#ev-drivers" class="block text-base font-medium text-slate-700">EV Drivers</a>
+      <a href="#about" class="block text-base font-medium text-slate-700">About</a>
+      <a href="#proposal" class="block text-base font-semibold text-volt-600">Get a Proposal</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="relative pt-16 pb-12 md:pt-24 md:pb-16 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+      Zero Upfront Cost <span class="gradient-text">EV Charging</span><br class="hidden sm:block"> for Your Property
+    </h1>
+    <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+      We install, operate and maintain high-power DC fast charging infrastructure while you earn recurring revenue.
+      <span class="block mt-2 text-sm text-slate-500">South Africa's smart charging network for property owners and fleet operators.</span>
+    </p>
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#proposal" class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-volt-600 rounded-xl hover:bg-volt-700 transition shadow-lg shadow-volt-600/20">Request a Proposal</a>
+      <a href="#calculator" class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-volt-700 bg-volt-50 border-2 border-volt-200 rounded-xl hover:bg-volt-100 transition">Estimate Revenue</a>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<div class="w-full bg-slate-900 border-y border-slate-800 py-4">
+  <div class="max-w-6xl mx-auto px-4 flex flex-wrap justify-center items-center gap-4 md:gap-8 text-xs sm:text-sm font-medium text-slate-300">
+    <div class="flex items-center gap-2"><span class="text-volt-400">⚡</span> High-Power DC Fast Charging</div>
+    <div class="flex items-center gap-2"><span class="text-volt-400">🛡️</span> Load-Shedding Aware</div>
+    <div class="flex items-center gap-2"><span class="text-volt-400">📡</span> OCPP Connected</div>
+    <div class="flex items-center gap-2"><span class="text-volt-400">💳</span> Contactless Payment</div>
+    <div class="flex items-center gap-2"><span class="text-volt-400">🔒</span> 24/7 Remote Monitoring</div>
+  </div>
+</div>
+
+<!-- Hardware Visual -->
+<section class="py-12 bg-volt-50/50">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-volt-100 to-white border border-volt-200 p-8 md:p-12">
+      <div class="flex flex-col items-center justify-center gap-4">
+        <svg class="w-20 h-20 text-volt-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="6" width="20" height="12" rx="2"></rect><path d="M6 10v4"></path><path d="M9 10v4"></path><path d="M12 10v4"></path><path d="M15 10v4"></path><path d="M18 10v4"></path>
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor" class="text-volt-500" opacity="0.2"></polygon>
+        </svg>
+        <p class="text-sm font-medium text-volt-800 uppercase tracking-wider">Volt Bay Charging Hardware</p>
+        <p class="text-slate-600 text-sm max-w-md">High-power DC fast chargers with CCS2 connectors — compatible with all modern EVs sold in South Africa.</p>
+        <span class="inline-block px-3 py-1 text-xs font-semibold text-volt-700 bg-volt-100 rounded-full">Replace with actual charger photo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why EV Charging? -->
+<section id="property-owners" class="py-16 md:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Future-Proof Your Property</h2>
+      <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Turn underutilised parking bays into revenue-generating, sustainable infrastructure.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <div class="w-10 h-10 rounded-lg bg-volt-100 text-volt-600 flex items-center justify-center text-lg mb-4">🚗</div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">Attract High-Value Visitors</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Charging availability influences where affluent motorists shop, work, and dwell.</p>
+      </div>
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <div class="w-10 h-10 rounded-lg bg-volt-100 text-volt-600 flex items-center justify-center text-lg mb-4">⏱️</div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">Increase Dwell Time &amp; Retail Spend</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Fast charging keeps visitors on-site for 30–60 minutes, driving revenue to surrounding tenants.</p>
+      </div>
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <div class="w-10 h-10 rounded-lg bg-volt-100 text-volt-600 flex items-center justify-center text-lg mb-4">💰</div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">Passive Monthly Income</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Monetise parking infrastructure with zero operational hassle through Volt Bay's revenue-share model.</p>
+      </div>
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <div class="w-10 h-10 rounded-lg bg-volt-100 text-volt-600 flex items-center justify-center text-lg mb-4">🌱</div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">Meet Sustainability Goals</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">Many organisations are placing increasing emphasis on ESG reporting and sustainability initiatives.</p>
+      </div>
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition md:col-span-2">
+        <div class="w-10 h-10 rounded-lg bg-volt-100 text-volt-600 flex items-center justify-center text-lg mb-4">🏢</div>
+        <h3 class="text-lg font-semibold text-slate-900 mb-2">Maintain a Competitive Market Edge</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">On-site DC fast charging is rapidly transitioning from a luxury perk to an essential commercial amenity. Future-proof your property valuation today.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Volt Bay / Built for Every Stakeholder -->
+<section class="py-16 md:py-20 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Built for Every Stakeholder</h2>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3 mb-10">
+      <button onclick="switchTab('property')" id="tab-property" class="tab-btn px-6 py-3 rounded-xl text-sm font-semibold bg-volt-600 text-white shadow-md transition">Property Managers</button>
+      <button onclick="switchTab('fleet')" id="tab-fleet" class="tab-btn px-6 py-3 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:border-volt-300 transition">Fleet Operators</button>
+      <button onclick="switchTab('drivers')" id="tab-drivers" class="tab-btn px-6 py-3 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:border-volt-300 transition">EV Drivers</button>
+    </div>
+
+    <div id="content-property" class="tab-content">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">💰</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Zero Upfront Investment</h3>
+          <p class="text-sm text-slate-600">For qualifying partner sites, Volt Bay may fund the charging equipment and standard installation, subject to site feasibility, commercial approval, and the final partnership agreement.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">📊</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Monthly Revenue Share</h3>
+          <p class="text-sm text-slate-600">Receive a transparent revenue share, paid quarterly with detailed usage reporting.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">🔧</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Fully Managed Service</h3>
+          <p class="text-sm text-slate-600">Maintenance, firmware updates and fault response — we handle everything.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">⚡</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Load-Shedding Aware Design</h3>
+          <p class="text-sm text-slate-600">Intelligent power management and optional backup integration where technically feasible.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">🏢</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Tenant Attraction</h3>
+          <p class="text-sm text-slate-600">EV charging is a ranked amenity for commercial tenants and residential buyers. Future-proof your asset.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">📝</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Simple Agreement</h3>
+          <p class="text-sm text-slate-600">Agreement structures are tailored to each site and may include an initial pilot phase where appropriate.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="content-fleet" class="tab-content hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">🏭</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Depot &amp; Destination Charging</h3>
+          <p class="text-sm text-slate-600">Overnight depot charging and opportunistic top-ups at retail or office locations in your network.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">📈</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Usage Reporting</h3>
+          <p class="text-sm text-slate-600">Monthly CSV exports of kWh delivered, session counts, and driver IDs for internal cost allocation.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">🔌</div>
+          <h3 class="font-semibold text-slate-900 mb-2">CCS2 Standard</h3>
+          <p class="text-sm text-slate-600">High-power DC fast charging via CCS2 — compatible with all modern EVs sold in South Africa.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">⚡</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Load Management</h3>
+          <p class="text-sm text-slate-600">Dynamic load balancing across multiple bays to avoid tripping your building's main breaker.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">🚀</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Priority Access</h3>
+          <p class="text-sm text-slate-600">Reserved bays and priority queuing for fleet vehicles during contracted windows.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">💳</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Consolidated Billing</h3>
+          <p class="text-sm text-slate-600">Single monthly invoice for all fleet charging across your site network. No driver-side apps required.</p>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <a href="fleet.html" class="inline-flex items-center px-6 py-3 text-sm font-semibold text-volt-700 bg-volt-50 border border-volt-200 rounded-xl hover:bg-volt-100 transition">View Full Fleet Solutions →</a>
+      </div>
+    </div>
+
+    <div id="content-drivers" class="tab-content hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">🔌</div>
+          <h3 class="font-semibold text-slate-900 mb-2">High-Power DC Fast Charging</h3>
+          <p class="text-sm text-slate-600">Get meaningful range in 30–60 minutes while you shop, work, or dine.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">💳</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Competitive Pricing</h3>
+          <p class="text-sm text-slate-600">Competitive pricing below national network rates. No hidden connection fees.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">📍</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Convenient Locations</h3>
+          <p class="text-sm text-slate-600">Charging where you already park — malls, offices, gyms, and residential complexes.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">📱</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Simple Payment</h3>
+          <p class="text-sm text-slate-600">Pay by card or mobile app. No subscription or membership required.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">🛡️</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Safe &amp; Lit Bays</h3>
+          <p class="text-sm text-slate-600">Well-lit, monitored parking bays with clear signage and 24/7 support hotline.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200">
+          <div class="w-10 h-10 rounded-lg bg-volt-100 flex items-center justify-center text-xl mb-4">🔋</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Real-Time Availability</h3>
+          <p class="text-sm text-slate-600">Check bay availability on site via clear LED status indicators.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Revenue Calculator -->
+<section id="calculator" class="py-16 md:py-20">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Partner Revenue Calculator</h2>
+      <p class="mt-2 text-slate-600">Illustrative projections based on Volt Bay's planned hardware and general South African market conditions. Not a guarantee of results.</p>
+    </div>
+    <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="space-y-6">
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <label class="text-sm font-medium text-slate-700">Charging bays installed</label>
+            <span id="val-bays" class="text-sm font-bold text-volt-600">2</span>
+          </div>
+          <input type="range" min="1" max="10" value="2" id="input-bays" class="slider-thumb w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+        </div>
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <label class="text-sm font-medium text-slate-700">Avg. sessions per bay per day</label>
+            <span id="val-sessions" class="text-sm font-bold text-volt-600">6</span>
+          </div>
+          <input type="range" min="1" max="20" value="6" id="input-sessions" class="slider-thumb w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+        </div>
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <label class="text-sm font-medium text-slate-700">Avg. revenue per session</label>
+            <span id="val-revenue" class="text-sm font-bold text-volt-600">R180</span>
+          </div>
+          <input type="range" min="50" max="300" value="180" id="input-revenue" class="slider-thumb w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+        </div>
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <label class="text-sm font-medium text-slate-700">Revenue share to property</label>
+            <span id="val-share" class="text-sm font-bold text-volt-600">17%</span>
+          </div>
+          <input type="range" min="10" max="30" value="17" id="input-share" class="slider-thumb w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+        </div>
+      </div>
+      <div class="mt-8 p-6 bg-volt-50 border border-volt-200 rounded-xl text-center">
+        <p class="text-sm text-slate-600 mb-1">Estimated monthly revenue share</p>
+        <p id="result" class="text-4xl font-extrabold text-volt-700">R11 016</p>
+        <p class="text-xs text-slate-500 mt-2">per month</p>
+        <p id="formula" class="text-xs text-slate-500 mt-1">2 bays × 6 sessions/day × 30 days × R180 × 17%</p>
+      </div>
+    </div>
+    <div class="mt-6 p-5 bg-slate-50 border-l-4 border-volt-500 rounded-r-xl">
+      <p class="text-sm text-slate-700 leading-relaxed">
+        <strong class="text-volt-700">How this works:</strong> Volt Bay installs DC fast charging at your property. Drivers pay per kWh/session. You receive a share of gross revenue as a monthly payment. Session volumes vary by location, local EV density, and pricing — figures above are illustrative starting assumptions, not a forecast for any specific site. Actual revenue will be confirmed during the site feasibility and proposal process.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Our Process -->
+<section class="py-16 md:py-20 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">From Proposal to Power: How It Works</h2>
+      <p class="mt-3 text-slate-600">We manage the engineering, capital expenditure, and compliance from start to finish.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="relative pl-6 border-l-2 border-volt-500">
+        <span class="text-xs font-bold uppercase tracking-wider text-volt-600">Step 01</span>
+        <h3 class="text-lg font-semibold text-slate-900 mt-1">Site Assessment</h3>
+        <p class="text-slate-600 text-sm mt-2">We evaluate your parking layout, driver traffic flows, and available grid connection capacity.</p>
+      </div>
+      <div class="relative pl-6 border-l-2 border-volt-500">
+        <span class="text-xs font-bold uppercase tracking-wider text-volt-600">Step 02</span>
+        <h3 class="text-lg font-semibold text-slate-900 mt-1">Feasibility &amp; Engineering</h3>
+        <p class="text-slate-600 text-sm mt-2">Our team completes grid capacity modeling, civil works planning, and load-shedding resilience design.</p>
+      </div>
+      <div class="relative pl-6 border-l-2 border-volt-500">
+        <span class="text-xs font-bold uppercase tracking-wider text-volt-600">Step 03</span>
+        <h3 class="text-lg font-semibold text-slate-900 mt-1">Commercial Proposal</h3>
+        <p class="text-slate-600 text-sm mt-2">We prepare a tailored revenue-share agreement with clear operational terms based on site requirements and feasibility.</p>
+      </div>
+      <div class="relative pl-6 border-l-2 border-volt-500">
+        <span class="text-xs font-bold uppercase tracking-wider text-volt-600">Step 04</span>
+        <h3 class="text-lg font-semibold text-slate-900 mt-1">Turnkey Installation</h3>
+        <p class="text-slate-600 text-sm mt-2">For qualifying sites, Volt Bay manages hardware procurement, civil works, electrical connections, and bay signage as agreed in the partnership contract.</p>
+      </div>
+      <div class="relative pl-6 border-l-2 border-volt-500">
+        <span class="text-xs font-bold uppercase tracking-wider text-volt-600">Step 05</span>
+        <h3 class="text-lg font-semibold text-slate-900 mt-1">Go Live &amp; Integration</h3>
+        <p class="text-slate-600 text-sm mt-2">Charger activation, payment gateway integration, and listing across public EV charging network maps.</p>
+      </div>
+      <div class="relative pl-6 border-l-2 border-volt-500">
+        <span class="text-xs font-bold uppercase tracking-wider text-volt-600">Step 06</span>
+        <h3 class="text-lg font-semibold text-slate-900 mt-1">Ongoing Operations</h3>
+        <p class="text-slate-600 text-sm mt-2">Continuous remote monitoring, regular revenue disbursements, and technical maintenance as set out in the partnership agreement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Regional Coverage -->
+<section class="py-16 md:py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Regional Coverage</h2>
+    <p class="mt-3 text-slate-600">Where we're building our first sites and actively growing.</p>
+    <div class="mt-8 inline-flex flex-wrap justify-center gap-3">
+      <span class="px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium">🟡 Johannesburg</span>
+      <span class="px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium">🟡 Pretoria</span>
+      <span class="px-4 py-2 bg-amber-100 text-amber-800 rounded-full text-sm font-medium">🟡 Cape Town</span>
+      <span class="px-4 py-2 bg-slate-100 text-slate-600 rounded-full text-sm font-medium">⚪ Durban</span>
+      <span class="px-4 py-2 bg-slate-100 text-slate-600 rounded-full text-sm font-medium">⚪ Port Elizabeth</span>
+      <span class="px-4 py-2 bg-slate-100 text-slate-600 rounded-full text-sm font-medium">⚪ Bloemfontein</span>
+    </div>
+    <p class="mt-4 text-xs text-slate-500">Yellow = In active site development. White = Expansion planned, not yet underway.</p>
+  </div>
+</section>
+
+<!-- ROI Snapshot -->
+<section class="py-12 bg-volt-50/50 border-y border-volt-100">
+  <div class="max-w-2xl mx-auto px-4 text-center">
+    <h3 class="text-xl font-bold text-slate-900 mb-4">Illustrative Example</h3>
+    <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+      <table class="w-full text-sm">
+        <tbody class="divide-y divide-slate-100">
+          <tr><td class="px-4 py-3 text-left text-slate-600">Charging Hardware</td><td class="px-4 py-3 text-right font-semibold text-slate-900">2 × High-Power DC Fast Chargers</td></tr>
+          <tr><td class="px-4 py-3 text-left text-slate-600">Illustrative Utilisation</td><td class="px-4 py-3 text-right font-semibold text-slate-900">4–8 sessions per bay / day</td></tr>
+          <tr><td class="px-4 py-3 text-left text-slate-600">Partnership Model</td><td class="px-4 py-3 text-right font-semibold text-slate-900">Revenue-Sharing Partnership</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <a href="#calculator" class="inline-block mt-4 text-sm font-semibold text-volt-700 hover:text-volt-800 underline underline-offset-4">Estimate Your Revenue →</a>
+    <p class="mt-3 text-xs text-slate-500">Figures are for demonstration only and are not a guarantee of revenue. Actual results depend on utilisation, tariffs, site characteristics, and commercial agreements.</p>
+  </div>
+</section>
+
+<!-- FAQ Accordion -->
+<section class="py-16 md:py-20">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Frequently Asked Questions</h2>
+      <p class="mt-2 text-slate-600">Everything you need to know about partnering with Volt Bay.</p>
+    </div>
+    <div class="space-y-4">
+      <details class="group bg-white border border-slate-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 text-base">
+          <span>How much does installation cost my property?</span>
+          <span class="transition group-open:rotate-180 text-volt-500">▼</span>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">For qualifying partner sites, Volt Bay may fund the charging equipment and standard installation, subject to site feasibility, commercial approval, and the final partnership agreement.</p>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 text-base">
+          <span>How does the revenue share work?</span>
+          <span class="transition group-open:rotate-180 text-volt-500">▼</span>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">Revenue-sharing structures are discussed during the proposal process, backed by transparent reporting detailing kWh delivered and session volume.</p>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 text-base">
+          <span>What happens to the chargers during load shedding?</span>
+          <span class="transition group-open:rotate-180 text-volt-500">▼</span>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">Our chargers feature intelligent power management to protect equipment and optimize charging schedules. Optional battery or generator backup can be integrated where technically feasible and commercially agreed upon with the site owner.</p>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 text-base">
+          <span>What commitment is required in the partnership agreement?</span>
+          <span class="transition group-open:rotate-180 text-volt-500">▼</span>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">Agreement structures are tailored to each site and may include an initial pilot phase where appropriate.</p>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 text-base">
+          <span>Who handles equipment maintenance and repairs?</span>
+          <span class="transition group-open:rotate-180 text-volt-500">▼</span>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">Volt Bay provides ongoing routine servicing, remote firmware updates, and technical maintenance as set out in the partnership agreement.</p>
+      </details>
+      <details class="group bg-white border border-slate-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer font-semibold text-slate-900 text-base">
+          <span>Which vehicle types can use Volt Bay chargers?</span>
+          <span class="transition group-open:rotate-180 text-volt-500">▼</span>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">We deploy high-power DC fast chargers equipped with industry-standard CCS2 connectors, compatible with modern passenger and commercial EVs in South Africa.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Proposal Form -->
+<section id="proposal" class="py-16 md:py-20 bg-slate-50">
+  <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Request a Partnership Proposal</h2>
+      <p class="mt-2 text-slate-600">We will send a tailored PDF proposal based on your site details.</p>
+    </div>
+    <form class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm" action="#" method="POST">
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+          <input type="text" name="name" placeholder="Your name" required class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-volt-500 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+          <input type="email" name="email" placeholder="you@company.co.za" required class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-volt-500 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Company / Property</label>
+          <input type="text" name="company" placeholder="Company or property name" required class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-volt-500 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">My Property Type</label>
+          <select name="property_type" required class="w-full px-4 py-2.5 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-volt-500 focus:outline-none">
+            <option value="" disabled selected>Select property type...</option>
+            <option value="shopping_centre">Shopping Centre / Retail Park</option>
+            <option value="office_park">Office Park / Commercial Building</option>
+            <option value="residential">Residential Complex / Estate</option>
+            <option value="industrial">Industrial / Warehouse / Logistics</option>
+            <option value="fleet_operator">Fleet Operator / Commercial Depot</option>
+            <option value="public_sector">Municipality / Public Sector</option>
+            <option value="other">EV Driver / Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">City</label>
+          <select name="city" required class="w-full px-4 py-2.5 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-volt-500 focus:outline-none">
+            <option value="" disabled selected>Select city...</option>
+            <option value="johannesburg">Johannesburg</option>
+            <option value="pretoria">Pretoria</option>
+            <option value="cape_town">Cape Town</option>
+            <option value="durban">Durban</option>
+            <option value="port_elizabeth">Port Elizabeth</option>
+            <option value="bloemfontein">Bloemfontein</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Estimated Parking Bays</label>
+          <input type="number" name="bays" placeholder="e.g. 100" class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-volt-500 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">Message (optional)</label>
+          <textarea name="message" rows="3" placeholder="Tell us about your property or fleet needs..." class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-volt-500 focus:outline-none"></textarea>
+        </div>
+        <button type="submit" class="w-full px-6 py-3 text-base font-semibold text-white bg-volt-600 rounded-xl hover:bg-volt-700 transition shadow-lg shadow-volt-600/20">Request Proposal</button>
+        <p class="text-center text-sm text-slate-500">Or email us directly at <a href="mailto:partnerships@voltbay.co.za" class="text-volt-600 underline">partnerships@voltbay.co.za</a></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-300 py-12">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-4">
+          <svg class="w-6 h-6 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span class="text-lg font-bold text-white">VOLT<span class="text-volt-400">BAY</span></span>
+        </div>
+        <p class="text-sm text-slate-400 max-w-sm">Powering South Africa's electric transition with honest, zero-upfront partnerships for property owners and fleet operators.</p>
+      </div>
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-3">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#property-owners" class="hover:text-volt-400 transition">Solutions</a></li>
+          <li><a href="#calculator" class="hover:text-volt-400 transition">Revenue Calculator</a></li>
+          <li><a href="#" class="hover:text-volt-400 transition">Coverage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-3">Resources</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#proposal" class="hover:text-volt-400 transition">Request Proposal</a></li>
+          <li><a href="#" class="hover:text-volt-400 transition">Partner Enquiries</a></li>
+          <li><a href="#" class="hover:text-volt-400 transition">Driver Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 pt-8 text-sm text-slate-500">
+      <p class="mb-2">Contact: <a href="mailto:partnerships@voltbay.co.za" class="text-volt-400 hover:underline">partnerships@voltbay.co.za</a> · <a href="mailto:support@voltbay.co.za" class="text-volt-400 hover:underline">support@voltbay.co.za</a></p>
+      <p class="mb-4">© 2026 Takenbuyme (Pty) Ltd. trading as Volt Bay. All rights reserved. Reg. 2022/462734/07 | South Africa</p>
+      <p class="text-xs text-slate-600">Disclaimer: All revenue projections and utilisation estimates are illustrative only. Actual results depend on site-specific factors including location, local EV adoption rates, electricity tariffs, and commercial agreements. Volt Bay makes no guarantees regarding specific financial outcomes.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Tab switching
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+    document.getElementById('content-' + tab).classList.remove('hidden');
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.remove('bg-volt-600', 'text-white', 'shadow-md');
+      btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+    });
+    const activeBtn = document.getElementById('tab-' + tab);
+    activeBtn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+    activeBtn.classList.add('bg-volt-600', 'text-white', 'shadow-md');
+  }
+
+  // Revenue Calculator
+  const inputBays = document.getElementById('input-bays');
+  const inputSessions = document.getElementById('input-sessions');
+  const inputRevenue = document.getElementById('input-revenue');
+  const inputShare = document.getElementById('input-share');
+  const valBays = document.getElementById('val-bays');
+  const valSessions = document.getElementById('val-sessions');
+  const valRevenue = document.getElementById('val-revenue');
+  const valShare = document.getElementById('val-share');
+  const result = document.getElementById('result');
+  const formula = document.getElementById('formula');
+
+  function formatCurrency(num) {
+    return 'R' + num.toLocaleString('en-ZA');
+  }
+
+  function calculate() {
+    const bays = parseInt(inputBays.value);
+    const sessions = parseInt(inputSessions.value);
+    const revenue = parseInt(inputRevenue.value);
+    const share = parseInt(inputShare.value);
+    valBays.textContent = bays;
+    valSessions.textContent = sessions;
+    valRevenue.textContent = 'R' + revenue;
+    valShare.textContent = share + '%';
+    const monthly = bays * sessions * 30 * revenue * (share / 100);
+    result.textContent = formatCurrency(monthly);
+    formula.textContent = bays + ' bays × ' + sessions + ' sessions/day × 30 days × R' + revenue + ' × ' + share + '%';
+  }
+
+  [inputBays, inputSessions, inputRevenue, inputShare].forEach(input => {
+    input.addEventListener('input', calculate);
+  });
+  calculate();
+</script>
+</body>
+</html>
